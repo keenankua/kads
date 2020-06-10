@@ -1,0 +1,66 @@
+$colours: (
+  background-primary: #ffffff,
+  background-secondary: rgba(0, 0, 0, 0.7),
+  text-primary: #333333,
+  text-secondary: #888888,
+  text-alternative: #ffffff,
+  accent: #579bbb,
+);
+
+$fonts: (
+  primary: (
+    "Overpass Mono",
+    monospace,
+  ),
+);
+
+@import "./_sidebar.scss";
+@import "./_about-gallery.scss";
+@import "./_bookings.scss";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+body {
+  font-family: map-get($fonts, primary);
+  color: map-get($colours, text-primary);
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.scroll-arrow {
+  position: fixed;
+  filter: invert(53%) sepia(0%) saturate(1385%) hue-rotate(135deg)
+    brightness(101%) contrast(95%);
+  width: 5rem;
+  z-index: 1;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+@media (min-width: 1200px) {
+  main {
+    // width: 100%;
+    position: relative;
+    margin-left: 24rem;
+  }
+}

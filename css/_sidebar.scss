@@ -1,0 +1,133 @@
+.sidebar {
+  color: map-get($colours, text-secondary);
+  background-color: map-get($colours, background-primary);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  header {
+    height: 8rem;
+    width: 100%;
+    padding: 1rem 2.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo,
+    .logo img {
+      height: 100%;
+    }
+
+    .burger {
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 2.5rem;
+      height: 0.2rem;
+      margin: 0.6rem 0;
+      background-color: map-get($colours, text-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .toggle .line1 {
+      transform: rotate(-45deg) translate(-0.5rem, 0.6rem);
+    }
+
+    .toggle .line2 {
+      opacity: 0;
+    }
+
+    .toggle .line3 {
+      transform: rotate(45deg) translate(-0.5rem, -0.6rem);
+    }
+  }
+
+  .sidebar-main {
+    padding: 2.4rem 2.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: map-get($colours, background-primary);
+    height: calc(100vh - 8rem);
+    width: 100%;
+    position: absolute;
+    top: 8rem;
+    left: -100%;
+
+    nav {
+      .nav-links {
+        font-size: 1.6rem;
+
+        .bullet {
+          height: 1.6rem;
+          width: 1.6rem;
+          background-color: map-get($colours, accent);
+          position: absolute;
+          left: -100%;
+        }
+
+        li:not(:first-child) {
+          margin-top: 1.2rem;
+        }
+      }
+    }
+
+    footer {
+      .contact-info {
+        ul li {
+          font-size: 1.4rem;
+        }
+      }
+
+      .socials {
+        margin-top: 1.2rem;
+        // Remove extra spacing below icons
+        line-height: 0.8;
+
+        img {
+          width: 2.4rem;
+          // Change svg colour
+          filter: invert(58%) sepia(56%) saturate(330%) hue-rotate(154deg)
+            brightness(86%) contrast(97%);
+        }
+
+        a:not(:first-child) {
+          margin-left: 1.6rem;
+        }
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    width: 24rem;
+
+    header {
+      height: 15.4rem;
+      padding: 3.8rem;
+
+      .logo,
+      .logo img {
+        height: 100%;
+      }
+
+      .burger {
+        display: none;
+      }
+    }
+
+    .sidebar-main {
+      height: calc(100vh - 15.4rem);
+      padding: 0 3.8rem 3.8rem 3.8rem;
+      position: static;
+    }
+  }
+}
