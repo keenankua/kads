@@ -2,7 +2,7 @@
 
 https://keenankua.com/kads/
 
-Mock architectural design studio brand with the main focus to practice:
+Mock architectural design studio company with the main focus to practice:
 - GSAP
 - Semantic HTML
 - Javascript
