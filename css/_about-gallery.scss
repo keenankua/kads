@@ -3,7 +3,6 @@
     font-size: 1.4rem;
     padding: 2.4rem 2rem;
     color: map-get($colours, text-alternative);
-    // font-weight: 700;
     background-color: map-get($colours, background-secondary);
     position: fixed;
     bottom: 0;
@@ -55,10 +54,6 @@
         right: 1.6rem;
       }
     }
-
-    figure:not(:first-of-type) {
-      // margin-top: 1.2rem;
-    }
   }
 }
 
@@ -83,14 +78,12 @@
 @media (min-width: 1000px) {
   #about-gallery {
     aside {
-      // font-size: 1.8rem;
       padding: 2.4rem 3.2rem;
       width: 45rem;
     }
 
     figure {
       figcaption {
-        // font-size: 1.8rem;
         top: 1.6rem;
         right: 2.4rem;
       }
@@ -126,7 +119,7 @@
       width: 100%;
       right: 0;
       // For when its width is set to 0 and the figcaption overflows
-      overflow: hidden;
+      overflow-x: hidden;
     }
   }
 }

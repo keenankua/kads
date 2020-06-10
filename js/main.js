@@ -32,6 +32,7 @@ const toggleBookingsBullet = gsap
     duration: 0.5,
     ease: Power2.easeInOut,
   });
+const sidebarRevealTL = gsap.timeline();
 const bookingsFormRevealTL = gsap.timeline();
 const bookingsHeaderRevealTL = gsap.timeline({
   scrollTrigger: {
@@ -90,20 +91,23 @@ burger.addEventListener("click", () => {
 navLinksAnchors.forEach((navLinkAnchor) =>
   navLinkAnchor.addEventListener("click", () => {
     // Close nav menu on anchor click
-    sidebarMain.classList.remove("sidebar-main-active");
+    toggleMenu.reverse();
     burger.classList.remove("toggle");
   })
 );
 
 // Must go descending width order to ensure largest applicable width media query is used
 if (mql1200.matches) {
+  sidebarRevealTL
+    .from("main", { marginLeft: 0, duration: 1, delay: 2 })
+    .from(".sidebar", { autoAlpha: 0, duration: 2 });
+
   gsap.to(".about", {
     scrollTrigger: {
       trigger: "main",
       start: "top",
       end: "bottom 100%",
       scrub: true,
-      // markers: true,
     },
     top: "0",
     autoAlpha: 0,
@@ -181,7 +185,6 @@ if (mql1200.matches) {
       start: "top 80px",
       end: "bottom 100%",
       scrub: true,
-      // markers: true,
     },
     top: "8rem",
     autoAlpha: 0,
@@ -193,7 +196,6 @@ if (mql1200.matches) {
       start: "top 80px",
       end: "bottom 100%",
       scrub: true,
-      // markers: true,
     },
     autoAlpha: 0,
   });
@@ -241,28 +243,13 @@ if (!mql1200.matches) {
 
 // Screen widths over 500px
 if (mql500.matches) {
-  figureRevealTL
-    .from(firstGalleryFigure, {
-      width: "0",
-      duration: 1,
-      ease: Power2.easeInOut,
-    })
-    .from(
-      firstGalleryFigure,
-      {
-        scale: 1.3,
-        duration: 1,
-        ease: Power2.easeInOut,
-      },
-      "-=1"
-    )
-    .from(
-      ".about",
-      {
-        autoAlpha: 0,
-        duration: 2,
-        ease: Power2.easeIn,
-      },
-      "-=1"
-    );
+  figureRevealTL.from(
+    ".about",
+    {
+      autoAlpha: 0,
+      duration: 2,
+      ease: Power2.easeIn,
+    },
+    "-=.5"
+  );
 }

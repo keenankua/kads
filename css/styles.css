@@ -213,7 +213,7 @@
     position: absolute;
     width: 100%;
     right: 0;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
